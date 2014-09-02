@@ -102,6 +102,26 @@ extension UIView{
     var top:        CGFloat { return self.frame.origin.y }
     var bottom:     CGFloat { return self.frame.origin.y + self.frame.size.height }
     
+    func setWidth(width:CGFloat)
+    {
+        self.frame.size.width = width
+    }
+    
+    func setHeight(height:CGFloat)
+    {
+        self.frame.size.height = height
+    }
+    
+    func setSize(size:CGSize)
+    {
+        self.frame.size = size
+    }
+    
+    func setOrigin(point:CGPoint)
+    {
+        self.frame.origin = point
+    }
+    
     func setX(x:CGFloat) //only change the origin x
     {
         self.frame.origin = CGPointMake(x, self.frame.origin.y)
@@ -124,7 +144,27 @@ extension UIView{
     
     func roundCorner(radius:CGFloat)
     {
-        self.layer.cornerRadius = radius;
+        self.layer.cornerRadius = radius
+    }
+    
+    func setTop(top:CGFloat)
+    {
+        self.frame.origin.y = top
+    }
+    
+    func setLeft(left:CGFloat)
+    {
+        self.frame.origin.x = left
+    }
+    
+    func setRight(right:CGFloat)
+    {
+        self.frame.origin.x = right - self.frame.size.width
+    }
+    
+    func setBottom(bottom:CGFloat)
+    {
+        self.frame.origin.y = bottom - self.frame.size.height
     }
 }
 

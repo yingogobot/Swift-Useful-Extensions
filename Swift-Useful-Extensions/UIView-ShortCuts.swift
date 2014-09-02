@@ -52,7 +52,7 @@ extension String{
 
     func containsString(s:String) -> Bool
     {
-        if(self.rangeOfString(s))
+        if(self.rangeOfString(s) != nil)
         {
             return true
         }
@@ -64,7 +64,7 @@ extension String{
     
     func containsString(s:String, compareOption: NSStringCompareOptions) -> Bool
     {
-        if(self.rangeOfString(s, options: compareOption))
+        if((self.rangeOfString(s, options: compareOption)) != nil)
         {
             return true
         }
@@ -122,7 +122,7 @@ extension UIView{
         self.center = CGPointMake(self.center.x, y)
     }
     
-    func roundCorner(radius:Float)
+    func roundCorner(radius:CGFloat)
     {
         self.layer.cornerRadius = radius;
     }

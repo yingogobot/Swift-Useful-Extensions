@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var testView : UIView
+    @IBOutlet var testView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
 
         var rounded:Double = double.roundToDecimalDigits(2)
         println(rounded)
-        println("234.4444".bridgeToObjectiveC().doubleValue)
+        println(("234.4444" as NSString).doubleValue)
         
         
         ////////////////////////////////////////////////////

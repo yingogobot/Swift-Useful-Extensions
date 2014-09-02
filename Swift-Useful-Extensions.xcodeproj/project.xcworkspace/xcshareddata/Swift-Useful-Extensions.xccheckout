@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FBF08037-4D58-4303-854A-A0F6E6A4D8BD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Swift-Useful-Extensions</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D27FAABB93A4157ED5537841525C2FF15078ED1D</key>
+		<string>https://github.com/yingogobot/Swift-Useful-Extensions.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Swift-Useful-Extensions.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D27FAABB93A4157ED5537841525C2FF15078ED1D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yingogobot/Swift-Useful-Extensions.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D27FAABB93A4157ED5537841525C2FF15078ED1D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D27FAABB93A4157ED5537841525C2FF15078ED1D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Swift-Extensions</string>
+		</dict>
+	</array>
+</dict>
+</plist>

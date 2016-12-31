@@ -217,28 +217,28 @@ extension UIView{
 }
 
 extension NSDate{
-    func daysInBetweenDate(date: NSDate) -> Double
+    func daysInBetween(_ date: NSDate) -> Double
     {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/86400)
         return diff
     }
     
-    func hoursInBetweenDate(date: NSDate) -> Double
+    func hoursInBetween(_ date: NSDate) -> Double
     {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/3600)
         return diff
     }
     
-    func minutesInBetweenDate(date: NSDate) -> Double
+    func minutesInBetween(_ date: NSDate) -> Double
     {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/60)
         return diff
     }
     
-    func secondsInBetweenDate(date: NSDate) -> Double
+    func secondsInBetween(_ date: NSDate) -> Double
     {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff)

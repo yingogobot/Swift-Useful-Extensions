@@ -57,10 +57,10 @@ class ViewController: UIViewController {
         
         print("\nNSDate:")
         let date : NSDate = NSDate().addingTimeInterval(60 * 60 * 24)
-        print("Hours in between now: \(date.hoursInBetweenDate(date: NSDate()))")
-        print("Minutes in between now: \(date.minutesInBetweenDate(date: NSDate()))")
+        print("Hours in between now: \(date.hoursInBetween(NSDate()))")
+        print("Minutes in between now: \(date.minutesInBetween(NSDate()))")
         
-        let double = (date.minutesInBetweenDate(date: NSDate()))
+        let double = (date.minutesInBetween(NSDate()))
 
         
         ////////////////////////////////////////////////////

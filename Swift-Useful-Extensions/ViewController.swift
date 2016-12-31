@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         //                  Int Extension                 //
         ////////////////////////////////////////////////////
         
+        print("\nInt:")
         if(111.isEven)
         {
             print("111 isEven");
@@ -36,35 +37,40 @@ class ViewController: UIViewController {
         {
             print("111 isOdd");
         }
-        
-        print(123.toFloat)
-        print("how many digits are in -2147483647 \((-2147483647).digits)")
-        print("how many digits are in -2147483647 \(2147483647.digits)")
+        print("123 to Float: \(123.toFloat)")
+        print("How many digits are in -2147483647: \((-2147483647).digits)")
+        print("How many digits are in 2147483647: \(2147483647.digits)")
         
 
         ////////////////////////////////////////////////////
         //                 String Extension               //
         ////////////////////////////////////////////////////
         
-        print("HEEEEEE".contains("he"))
-        print("HEEEEEE".contains("he", withCompareOptions: .caseInsensitive))
+        print("\nString:")
+        print("'HEEEEEE' contains 'he': \("HEEEEEE".contains("he"))")
+        print("'HEEEEEE' contains 'he' using caseInsensitive: \("HEEEEEE".contains("he", withCompareOptions: .caseInsensitive))")
+        
         
         ////////////////////////////////////////////////////
         //                 NSDate Extension               //
         ////////////////////////////////////////////////////     
         
+        print("\nNSDate:")
         let date : NSDate = NSDate().addingTimeInterval(60 * 60 * 24)
-        print(date.hoursInBetweenDate(date: NSDate()))
-        print(date.minutesInBetweenDate(date: NSDate()))
+        print("Hours in between now: \(date.hoursInBetweenDate(date: NSDate()))")
+        print("Minutes in between now: \(date.minutesInBetweenDate(date: NSDate()))")
+        
         let double = (date.minutesInBetweenDate(date: NSDate()))
+
         
         ////////////////////////////////////////////////////
         //                 Double Extension               //
         ////////////////////////////////////////////////////
 
-        let rounded:Double = double.roundToDecimalDigits(decimals: 1)
-        print(rounded)
-        print(("234.4444" as NSString).doubleValue)
+        print("\nDouble:")
+        print(double.roundedTo(decimals: 2))
+        print(5555.5555.roundedTo(decimals: 3))
+        print(234.4444.roundedTo(decimals: 1))
         
         
         ////////////////////////////////////////////////////
@@ -76,15 +82,16 @@ class ViewController: UIViewController {
         imageView.roundImage()
         self.view.addSubview(imageView)
         
+        
         ////////////////////////////////////////////////////
         //                UIImage Extension               //
         ////////////////////////////////////////////////////
-        
         
         let image = UIImage(named: "avatar.jpg")?.croppedImage(bound:CGRect(x:0, y:0, width:200, height:200))
         let imageView2 : UIImageView = UIImageView(image: image)
         imageView2.frame = CGRect(x:25, y:250, width:50, height:50)
         self.view.addSubview(imageView2)
+        
     }
 
     override func didReceiveMemoryWarning() {

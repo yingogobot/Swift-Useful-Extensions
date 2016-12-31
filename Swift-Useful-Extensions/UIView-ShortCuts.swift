@@ -36,23 +36,25 @@ extension Int{
 
 
 extension Double{
-    func roundToDecimalDigits(decimals:Int) -> Double
+    func roundedTo(decimals:Int) -> Double
     {
-        let a : Double = self
-       
-        
         let format = NumberFormatter()
-        format.numberStyle = .decimal
+        format.numberStyle = NumberFormatter.Style.decimal
+        format.multiplier = 1
         format.roundingMode = .up
-        format.maximumFractionDigits = 2
-        format.string(from: NSNumber(value:a) )
+        format.maximumFractionDigits = decimals
+        format.number(from: format.string(for: self )! )
         
-        let string: String = format.string(from:NSNumber(value:a))!
-        print(string)
-        
-        return (string as NSString).doubleValue
+        return (format.number(from: format.string(for: self )! )) as! Double
     }
 }
+
+
+
+
+
+
+
 
 extension String{
     

@@ -1,6 +1,6 @@
 Swift-Useful-Extensions
 =======================
-Version 3.0.0
+
 
 ##Int Extension##
     isEven:Bool

@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         //                 UIView Extension               //
         ////////////////////////////////////////////////////
 
-        self.testView.setCenterX(250);
-        self.testView.setY(50);
-        self.testView.roundCorner(5)
+        self.testView.centerX = 250
+        self.testView.y = 50
+        self.testView.cornerRadius = 5
         
         
         ////////////////////////////////////////////////////
@@ -30,49 +30,49 @@ class ViewController: UIViewController {
         
         if(111.isEven)
         {
-            println("111 isEven");
+            print("111 isEven");
         }
         else if (111.isOdd)
         {
-            println("111 isOdd");
+            print("111 isOdd");
         }
         
-        println(123.toFloat)
-        println("how many digits is in -2147483647 \((-2147483647).digits)")
-        println("how many digits is in -2147483647 \(2147483647.digits)")
+        print(123.toFloat)
+        print("how many digits are in -2147483647 \((-2147483647).digits)")
+        print("how many digits are in -2147483647 \(2147483647.digits)")
         
 
         ////////////////////////////////////////////////////
         //                 String Extension               //
         ////////////////////////////////////////////////////
         
-        println("HEEEEEE".containsString("he"))
-        println("HEEEEEE".containsString("he", compareOption: NSStringCompareOptions.CaseInsensitiveSearch))
+        print("HEEEEEE".contains("he"))
+        print("HEEEEEE".contains("he", withCompareOptions: .caseInsensitive))
         
         ////////////////////////////////////////////////////
         //                 NSDate Extension               //
         ////////////////////////////////////////////////////     
         
-        var date : NSDate = NSDate.date().dateByAddingTimeInterval(60 * 60 * 24)
-        println(date.hoursInBetweenDate(NSDate.date()))
-        println(date.minutesInBetweenDate(NSDate.date()))
-        var double = (date.minutesInBetweenDate(NSDate.date()))
+        let date : NSDate = NSDate().addingTimeInterval(60 * 60 * 24)
+        print(date.hoursInBetweenDate(date: NSDate()))
+        print(date.minutesInBetweenDate(date: NSDate()))
+        let double = (date.minutesInBetweenDate(date: NSDate()))
         
         ////////////////////////////////////////////////////
         //                 Double Extension               //
         ////////////////////////////////////////////////////
 
-        var rounded:Double = double.roundToDecimalDigits(2)
-        println(rounded)
-        println(("234.4444" as NSString).doubleValue)
+        let rounded:Double = double.roundToDecimalDigits(decimals: 1)
+        print(rounded)
+        print(("234.4444" as NSString).doubleValue)
         
         
         ////////////////////////////////////////////////////
         //              UIImageView Extension             //
         ////////////////////////////////////////////////////
         
-        var imageView : UIImageView = UIImageView(image: UIImage(named: "avatar.jpg"))
-        imageView.frame = CGRectMake(25, 50, 200, 200)
+        let imageView : UIImageView = UIImageView(image: UIImage(named: "avatar.jpg"))
+        imageView.frame = CGRect(x:25, y:50, width:200, height:200)
         imageView.roundImage()
         self.view.addSubview(imageView)
         
@@ -80,9 +80,10 @@ class ViewController: UIViewController {
         //                UIImage Extension               //
         ////////////////////////////////////////////////////
         
-        var image = UIImage(named: "avatar.jpg").croppedImage(CGRectMake(0, 0, 200, 200))
-        var imageView2 : UIImageView = UIImageView(image: image)
-        imageView2.frame = CGRectMake(25, 250, 50, 50)
+        
+        let image = UIImage(named: "avatar.jpg")?.croppedImage(bound:CGRect(x:0, y:0, width:200, height:200))
+        let imageView2 : UIImageView = UIImageView(image: image)
+        imageView2.frame = CGRect(x:25, y:250, width:50, height:50)
         self.view.addSubview(imageView2)
     }
 

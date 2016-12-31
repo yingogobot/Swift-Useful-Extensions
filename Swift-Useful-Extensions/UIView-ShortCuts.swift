@@ -33,26 +33,34 @@ extension Int{
     }
 }
 
+
+
 extension Double{
     func roundToDecimalDigits(decimals:Int) -> Double
     {
         let a : Double = self
-        var format : NSNumberFormatter = NSNumberFormatter()
-        format.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        format.roundingMode = NSNumberFormatterRoundingMode.RoundHalfUp
+       
+        
+        let format = NumberFormatter()
+        format.numberStyle = .decimal
+        format.roundingMode = .up
         format.maximumFractionDigits = 2
-        var string: NSString = format.stringFromNumber(NSNumber.numberWithDouble(a))
-        println(string.doubleValue)
-        return string.doubleValue
+        format.string(from: NSNumber(value:a) )
+        
+        let string: String = format.string(from:NSNumber(value:a))!
+        print(string)
+        
+        return (string as NSString).doubleValue
     }
 }
 
 extension String{
-    var length:Int {return countElements(self)}
+    
+    var length:Int {return self.length}
 
-    func containsString(s:String) -> Bool
+    func contains(_ string:String) -> Bool
     {
-        if(self.rangeOfString(s) != nil)
+        if(self.range(of:string) != nil)
         {
             return true
         }
@@ -62,9 +70,9 @@ extension String{
         }
     }
     
-    func containsString(s:String, compareOption: NSStringCompareOptions) -> Bool
+    func contains(_ string:String, withCompareOptions compareOptions: NSString.CompareOptions) -> Bool
     {
-        if((self.rangeOfString(s, options: compareOption)) != nil)
+        if((self.range(of:string, options: compareOptions)) != nil)
         {
             return true
         }
@@ -77,9 +85,10 @@ extension String{
     func reverse() -> String
     {
         var reverseString : String = ""
-        for c in self
+        
+        for c in self.characters //.indices
         {
-            reverseString = c + reverseString
+            reverseString = String(c) + reverseString
         }
         return reverseString
     }
@@ -87,85 +96,122 @@ extension String{
 
 //UIView
 extension UIView{
-    var width:      CGFloat { return self.frame.size.width }
-    var height:     CGFloat { return self.frame.size.height }
-    var size:       CGSize  { return self.frame.size}
     
-    var origin:     CGPoint { return self.frame.origin }
-    var x:          CGFloat { return self.frame.origin.x }
-    var y:          CGFloat { return self.frame.origin.y }
-    var centerX:    CGFloat { return self.center.x }
-    var centerY:    CGFloat { return self.center.y }
-    
-    var left:       CGFloat { return self.frame.origin.x }
-    var right:      CGFloat { return self.frame.origin.x + self.frame.size.width }
-    var top:        CGFloat { return self.frame.origin.y }
-    var bottom:     CGFloat { return self.frame.origin.y + self.frame.size.height }
-    
-    func setWidth(width:CGFloat)
-    {
-        self.frame.size.width = width
+    var width:CGFloat {
+        get{
+            return self.frame.size.width
+        }
+        set{
+            self.frame.size.width = newValue
+        }
     }
     
-    func setHeight(height:CGFloat)
-    {
-        self.frame.size.height = height
+    var height:CGFloat {
+        get{
+            return self.frame.size.height
+        }
+        set{
+            self.frame.size.height = newValue
+        }
     }
     
-    func setSize(size:CGSize)
-    {
-        self.frame.size = size
+    var size:CGSize  {
+        get{
+            return self.frame.size
+        }
+        set{
+            self.frame.size = newValue
+        }
     }
     
-    func setOrigin(point:CGPoint)
-    {
-        self.frame.origin = point
+    var origin:CGPoint {
+        get{
+            return self.frame.origin
+        }
+        set{
+            self.frame.origin = newValue
+        }
     }
     
-    func setX(x:CGFloat) //only change the origin x
-    {
-        self.frame.origin = CGPointMake(x, self.frame.origin.y)
+    var x:CGFloat {
+        get{
+            return self.frame.origin.x
+        }
+        set{
+            self.frame.origin = CGPoint(x:newValue, y:self.frame.origin.y)
+        }
     }
     
-    func setY(y:CGFloat) //only change the origin x
-    {
-        self.frame.origin = CGPointMake(self.frame.origin.x, y)
+    var y:CGFloat {
+        get{
+            return self.frame.origin.y
+        }
+        set{
+            self.frame.origin = CGPoint(x:self.frame.origin.x, y:newValue)
+        }
     }
     
-    func setCenterX(x:CGFloat) //only change the origin x
-    {
-        self.center = CGPointMake(x, self.center.y)
+    var centerX:CGFloat {
+        get{
+            return self.center.x
+        }
+        set{
+            self.center = CGPoint(x:newValue, y:self.center.y)
+        }
     }
     
-    func setCenterY(y:CGFloat) //only change the origin x
-    {
-        self.center = CGPointMake(self.center.x, y)
+    var centerY:CGFloat {
+        get{
+            return self.center.y
+        }
+        set{
+            self.center = CGPoint(x:self.center.x, y:newValue)
+        }
     }
     
-    func roundCorner(radius:CGFloat)
-    {
-        self.layer.cornerRadius = radius
+    var left:CGFloat {
+        get{
+            return self.frame.origin.x
+        }
+        set{
+            self.frame.origin.x = newValue
+        }
+    }
+        
+    var right:CGFloat {
+        get{
+            return self.frame.origin.x + self.frame.size.width
+        }
+        set{
+            self.frame.origin.x = newValue - self.frame.size.width
+        }
+    }
+    var top:CGFloat {
+        get{
+            return self.frame.origin.y
+        }
+        set{
+            self.frame.origin.y = newValue
+        }
+    }
+    var bottom:CGFloat {
+        get{
+            return self.frame.origin.y + self.frame.size.height
+        }
+        set{
+            self.frame.origin.y = newValue - self.frame.size.height
+        }
     }
     
-    func setTop(top:CGFloat)
-    {
-        self.frame.origin.y = top
+    var cornerRadius:CGFloat{
+        get{
+            return self.layer.cornerRadius
+        }
+        set{
+            self.layer.cornerRadius = newValue
+        }
     }
-    
-    func setLeft(left:CGFloat)
-    {
-        self.frame.origin.x = left
-    }
-    
-    func setRight(right:CGFloat)
-    {
-        self.frame.origin.x = right - self.frame.size.width
-    }
-    
-    func setBottom(bottom:CGFloat)
-    {
-        self.frame.origin.y = bottom - self.frame.size.height
-    }
+
 }
 
 extension NSDate{
@@ -210,9 +256,9 @@ extension UIImageView{
 extension UIImage{
     func croppedImage(bound : CGRect) -> UIImage
     {
-        var scaledBounds : CGRect = CGRectMake(bound.origin.x * self.scale, bound.origin.y * self.scale, bound.size.width * self.scale, bound.size.height * self.scale)
-        var imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledBounds)
-        var croppedImage : UIImage = UIImage(CGImage: imageRef, scale: self.scale, orientation: UIImageOrientation.Up)
+        let scaledBounds : CGRect = CGRect(x:bound.origin.x * self.scale, y:bound.origin.y * self.scale, width:bound.size.width * self.scale, height:bound.size.height * self.scale)
+        let imageRef = cgImage?.cropping(to:scaledBounds)
+        let croppedImage : UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
         return croppedImage;
     }
 }

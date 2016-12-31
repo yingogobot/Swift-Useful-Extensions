@@ -1,14 +1,10 @@
-//
-//  UIView-ShortCuts.swift
-//  Swift-Useful-Extensions
-//
-//  Created by Yin Xu on 6/9/14.
-//  Copyright (c) 2014 YinXuApp. All rights reserved.
-//
-import CoreFoundation
-import Foundation
+//  Useful-Extensions
+
+
 import UIKit
 
+
+//MARK = Int
 extension Int{
     var isEven:Bool     {return (self % 2 == 0)}
     var isOdd:Bool      {return (self % 2 != 0)}
@@ -17,17 +13,12 @@ extension Int{
     var toDouble:Double {return Double(self)}
     var toFloat:Float   {return Float(self)}
     
-    var digits:Int {//this only works in bound of LONG_MAX 2147483647, the maximum value of int
-        if(self == 0)
-        {
+    var digits: Int {//this only works in bound of LONG_MAX 2147483647, the maximum value of int
+        if (self == 0) {
             return 1
-        }
-        else if(Int(fabs(Double(self))) <= LONG_MAX)
-        {
+        } else if(Int(fabs(Double(self))) <= LONG_MAX){
             return Int(log10(fabs(Double(self)))) + 1
-        }
-        else
-        {
+        } else {
             return -1; //out of bound
         }
     }
@@ -35,9 +26,9 @@ extension Int{
 
 
 
-extension Double{
-    func roundedTo(decimals:Int) -> Double
-    {
+//MARK = Double
+extension Double {
+    func roundedTo(decimals: Int) -> Double {
         let format = NumberFormatter()
         format.numberStyle = NumberFormatter.Style.decimal
         format.multiplier = 1
@@ -51,74 +42,56 @@ extension Double{
 
 
 
-
-
-
-
-
-extension String{
+//MARK = String
+extension String {
     
-    var length:Int {return self.length}
-
-    func contains(_ string:String) -> Bool
-    {
-        if(self.range(of:string) != nil)
-        {
+    func contains(_ string:String) -> Bool {
+        if (self.range(of: string) != nil) {
             return true
-        }
-        else
-        {
+        } else {
             return false
         }
     }
     
-    func contains(_ string:String, withCompareOptions compareOptions: NSString.CompareOptions) -> Bool
-    {
-        if((self.range(of:string, options: compareOptions)) != nil)
-        {
+    func contains(_ string:String, withCompareOptions compareOptions: NSString.CompareOptions) -> Bool {
+        if ((self.range(of:string, options: compareOptions)) != nil) {
             return true
-        }
-        else
-        {
+        } else {
             return false
         }
     }
     
-    func reverse() -> String
-    {
-        var reverseString : String = ""
-        
-        for c in self.characters //.indices
-        {
-            reverseString = String(c) + reverseString
-        }
-        return reverseString
+    func reverse() -> String {
+        return String(self.characters.reversed())
     }
+    
 }
 
-//UIView
-extension UIView{
+
+
+//MARK = UIView
+extension UIView {
     
-    var width:CGFloat {
-        get{
+    var width: CGFloat {
+        get {
             return self.frame.size.width
         }
-        set{
+        set {
             self.frame.size.width = newValue
         }
     }
     
-    var height:CGFloat {
-        get{
+    var height: CGFloat {
+        get {
             return self.frame.size.height
         }
-        set{
+        set {
             self.frame.size.height = newValue
         }
     }
     
-    var size:CGSize  {
-        get{
+    var size: CGSize  {
+        get {
             return self.frame.size
         }
         set{
@@ -126,142 +99,142 @@ extension UIView{
         }
     }
     
-    var origin:CGPoint {
-        get{
+    var origin: CGPoint {
+        get {
             return self.frame.origin
         }
-        set{
+        set {
             self.frame.origin = newValue
         }
     }
     
-    var x:CGFloat {
-        get{
+    var x: CGFloat {
+        get {
             return self.frame.origin.x
         }
-        set{
+        set {
             self.frame.origin = CGPoint(x:newValue, y:self.frame.origin.y)
         }
     }
     
-    var y:CGFloat {
-        get{
+    var y: CGFloat {
+        get {
             return self.frame.origin.y
         }
-        set{
+        set {
             self.frame.origin = CGPoint(x:self.frame.origin.x, y:newValue)
         }
     }
     
-    var centerX:CGFloat {
-        get{
+    var centerX: CGFloat {
+        get {
             return self.center.x
         }
-        set{
+        set {
             self.center = CGPoint(x:newValue, y:self.center.y)
         }
     }
     
-    var centerY:CGFloat {
-        get{
+    var centerY: CGFloat {
+        get {
             return self.center.y
         }
-        set{
+        set {
             self.center = CGPoint(x:self.center.x, y:newValue)
         }
     }
     
-    var left:CGFloat {
-        get{
+    var left: CGFloat {
+        get {
             return self.frame.origin.x
         }
-        set{
+        set {
             self.frame.origin.x = newValue
         }
     }
-        
-    var right:CGFloat {
-        get{
+    
+    var right: CGFloat {
+        get {
             return self.frame.origin.x + self.frame.size.width
         }
-        set{
+        set {
             self.frame.origin.x = newValue - self.frame.size.width
         }
     }
-    var top:CGFloat {
-        get{
+    var top: CGFloat {
+        get {
             return self.frame.origin.y
         }
-        set{
+        set {
             self.frame.origin.y = newValue
         }
     }
-    var bottom:CGFloat {
-        get{
+    var bottom: CGFloat {
+        get {
             return self.frame.origin.y + self.frame.size.height
         }
-        set{
+        set {
             self.frame.origin.y = newValue - self.frame.size.height
         }
     }
     
-    var cornerRadius:CGFloat{
-        get{
+    var cornerRadius: CGFloat {
+        get {
             return self.layer.cornerRadius
         }
-        set{
+        set {
             self.layer.cornerRadius = newValue
         }
     }
-
+    
 }
 
-extension NSDate{
-    func daysInBetween(_ date: NSDate) -> Double
-    {
+
+//MARK = NSDate
+extension NSDate {
+    func daysInBetween(_ date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/86400)
         return diff
     }
     
-    func hoursInBetween(_ date: NSDate) -> Double
-    {
+    func hoursInBetween(_ date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/3600)
         return diff
     }
     
-    func minutesInBetween(_ date: NSDate) -> Double
-    {
+    func minutesInBetween(_ date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/60)
         return diff
     }
     
-    func secondsInBetween(_ date: NSDate) -> Double
-    {
+    func secondsInBetween(_ date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff)
         return diff
     }
 }
 
-extension UIImageView{
-    func roundImage()
-    {
+
+//MARK = UIImageView
+extension UIImageView {
+    func roundImage() {
         //height and width should be the same
         self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.size.width / 2;
+        self.layer.cornerRadius = self.frame.size.width / 2
     }
 }
 
-extension UIImage{
-    func croppedImage(bound : CGRect) -> UIImage
-    {
-        let scaledBounds : CGRect = CGRect(x:bound.origin.x * self.scale, y:bound.origin.y * self.scale, width:bound.size.width * self.scale, height:bound.size.height * self.scale)
+
+//MARK = UIImage
+extension UIImage {
+    func croppedImage(bound : CGRect) -> UIImage {
+        let scaledBounds: CGRect = CGRect(x:bound.origin.x * self.scale, y:bound.origin.y * self.scale, width:bound.size.width * self.scale, height:bound.size.height * self.scale)
         let imageRef = cgImage?.cropping(to:scaledBounds)
-        let croppedImage : UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
-        return croppedImage;
+        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        return croppedImage
     }
 }
 

@@ -1,10 +1,5 @@
-//
 //  ViewController.swift
 //  Swift-Useful-Extensions
-//
-//  Created by Yin Xu on 6/9/14.
-//  Copyright (c) 2014 YinXuApp. All rights reserved.
-//
 
 import UIKit
 
@@ -47,6 +42,7 @@ class ViewController: UIViewController {
         ////////////////////////////////////////////////////
         
         print("\nString:")
+        print("Reverse: \("Hello World".reverse())")
         print("'HEEEEEE' contains 'he': \("HEEEEEE".contains("he"))")
         print("'HEEEEEE' contains 'he' using caseInsensitive: \("HEEEEEE".contains("he", withCompareOptions: .caseInsensitive))")
         

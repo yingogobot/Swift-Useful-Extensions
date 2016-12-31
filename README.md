@@ -1,7 +1,6 @@
 Swift-Useful-Extensions
 =======================
-
-lots of categories i used in objc, rewrite in swift, more coming.
+Version 3.0.0
 
 ##Int Extension##
     isEven:Bool
@@ -16,26 +15,26 @@ lots of categories i used in objc, rewrite in swift, more coming.
     roundTo(decimals:Int) -> Double
 
 ##String Extension##
-    length:Int
     contains(_ string:String) -> Bool
     contains(_ string:String, withCompareOptions compareOptions: NSString.CompareOptions) -> Bool
     reverse() -> String
 
 ##UIView##
-    width:CGFloat
-    height:CGFloat
-    size:CGSize
+    var width: CGFloat { get set }
+    var height: CGFloat { get set }
+    var size: CGFloat { get set }
 
-    origin:CGPoint
-    x:CGFloat
-    y:CGFloat
-    centerX:CGFloat
-    centerY:CGFloat
+    var origin:CGPoint { get set }
+    var x:CGFloat { get set }
+    var y:CGFloat { get set }
+    var centerX:CGFloat { get set }
+    var centerY:CGFloat { get set }
 
-    left:CGFloat
-    right:CGFloat
-    top:CGFloat
-    bottom:CGFloat
+
+    var left:CGFloat { get set }
+    var right:CGFloat { get set }
+    var top:CGFloat { get set }
+    var bottom:CGFloat { get set }
 
     roundCorner(radius:Float)
 

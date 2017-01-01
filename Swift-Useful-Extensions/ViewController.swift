@@ -15,7 +15,9 @@ class ViewController: UIViewController {
         ////////////////////////////////////////////////////
 
         self.testView.centerX = 250
-        self.testView.y = 50
+        self.testView.y = 250
+        self.testView.width = 100
+        self.testView.height = 100
         self.testView.cornerRadius = 5
         
         
@@ -52,10 +54,9 @@ class ViewController: UIViewController {
         ////////////////////////////////////////////////////     
         
         print("\nNSDate:")
-        let date : NSDate = NSDate().addingTimeInterval(60 * 60 * 24)
+        let date = NSDate().addingTimeInterval(60 * 60 * 24)
         print("Hours in between now: \(date.hoursInBetween(NSDate()))")
         print("Minutes in between now: \(date.minutesInBetween(NSDate()))")
-        
         let double = (date.minutesInBetween(NSDate()))
 
         
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
         //              UIImageView Extension             //
         ////////////////////////////////////////////////////
         
-        let imageView : UIImageView = UIImageView(image: UIImage(named: "avatar.jpg"))
+        let imageView = UIImageView(image: UIImage(named: "avatar"))
         imageView.frame = CGRect(x:25, y:50, width:200, height:200)
         imageView.roundImage()
         self.view.addSubview(imageView)
@@ -83,10 +84,11 @@ class ViewController: UIViewController {
         //                UIImage Extension               //
         ////////////////////////////////////////////////////
         
-        let image = UIImage(named: "avatar.jpg")?.croppedImage(bound:CGRect(x:0, y:0, width:200, height:200))
-        let imageView2 : UIImageView = UIImageView(image: image)
+        let imageView2 = UIImageView(image: UIImage(named: "avatar"))
         imageView2.frame = CGRect(x:25, y:250, width:50, height:50)
+        imageView.contentMode = .scaleAspectFill
         self.view.addSubview(imageView2)
+        
         
     }
 

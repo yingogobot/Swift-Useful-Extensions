@@ -4,7 +4,7 @@
 import UIKit
 
 
-//MARK = Int
+//MARK - Int
 extension Int{
     var isEven:Bool     {return (self % 2 == 0)}
     var isOdd:Bool      {return (self % 2 != 0)}
@@ -13,20 +13,21 @@ extension Int{
     var toDouble:Double {return Double(self)}
     var toFloat:Float   {return Float(self)}
     
-    var digits: Int {//this only works in bound of LONG_MAX 2147483647, the maximum value of int
+    var digits: Int {
         if (self == 0) {
             return 1
         } else if(Int(fabs(Double(self))) <= LONG_MAX){
             return Int(log10(fabs(Double(self)))) + 1
         } else {
-            return -1; //out of bound
+            print("Out of bounds")
+            return -1;
         }
     }
 }
 
 
 
-//MARK = Double
+//MARK - Double
 extension Double {
     func roundedTo(decimals: Int) -> Double {
         let format = NumberFormatter()
@@ -42,7 +43,7 @@ extension Double {
 
 
 
-//MARK = String
+//MARK - String
 extension String {
     
     func contains(_ string:String) -> Bool {
@@ -69,7 +70,7 @@ extension String {
 
 
 
-//MARK = UIView
+//MARK - UIView
 extension UIView {
     
     var width: CGFloat {
@@ -183,6 +184,7 @@ extension UIView {
             return self.layer.cornerRadius
         }
         set {
+            self.layer.masksToBounds = true
             self.layer.cornerRadius = newValue
         }
     }
@@ -190,7 +192,7 @@ extension UIView {
 }
 
 
-//MARK = NSDate
+//MARK - NSDate
 extension NSDate {
     func daysInBetween(_ date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
@@ -218,22 +220,23 @@ extension NSDate {
 }
 
 
-//MARK = UIImageView
+//MARK - UIImageView
 extension UIImageView {
     func roundImage() {
         //height and width should be the same
-        self.clipsToBounds = true
+        self.layer.masksToBounds = true
         self.layer.cornerRadius = self.frame.size.width / 2
     }
 }
 
 
-//MARK = UIImage
+//MARK - UIImage
 extension UIImage {
     func croppedImage(bound : CGRect) -> UIImage {
-        let scaledBounds: CGRect = CGRect(x:bound.origin.x * self.scale, y:bound.origin.y * self.scale, width:bound.size.width * self.scale, height:bound.size.height * self.scale)
+        let scaledBounds = CGRect(x:bound.origin.x * self.scale, y:bound.origin.y * self.scale, width:bound.size.width * self.scale, height:bound.size.height * self.scale)
         let imageRef = cgImage?.cropping(to:scaledBounds)
-        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        let croppedImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        
         return croppedImage
     }
 }

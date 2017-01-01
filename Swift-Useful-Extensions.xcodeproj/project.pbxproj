@@ -13,7 +13,6 @@
 		2D38189819469B6D00C0F80C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D38189719469B6D00C0F80C /* Images.xcassets */; };
 		2D3818A419469B6D00C0F80C /* Swift_Useful_ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3818A319469B6D00C0F80C /* Swift_Useful_ExtensionsTests.swift */; };
 		2D3818AE19469BB100C0F80C /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3818AD19469BB100C0F80C /* UsefulExtensions.swift */; };
-		2DE56042195901BF002A6CDF /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DE56041195901BF002A6CDF /* avatar.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +36,6 @@
 		2D3818A219469B6D00C0F80C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D3818A319469B6D00C0F80C /* Swift_Useful_ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Useful_ExtensionsTests.swift; sourceTree = "<group>"; };
 		2D3818AD19469BB100C0F80C /* UsefulExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
-		2DE56041195901BF002A6CDF /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				2D3818AD19469BB100C0F80C /* UsefulExtensions.swift */,
 				2D38189419469B6D00C0F80C /* Main.storyboard */,
 				2D38189719469B6D00C0F80C /* Images.xcassets */,
-				2DE56041195901BF002A6CDF /* avatar.jpg */,
 				2D38188E19469B6D00C0F80C /* Supporting Files */,
 			);
 			path = "Swift-Useful-Extensions";
@@ -197,7 +194,6 @@
 			files = (
 				2D38189619469B6D00C0F80C /* Main.storyboard in Resources */,
 				2D38189819469B6D00C0F80C /* Images.xcassets in Resources */,
-				2DE56042195901BF002A6CDF /* avatar.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

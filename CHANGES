@@ -1,3 +1,7 @@
+Version 1.0.1:
+ - Making a bit more Swifty w/ type inference. Improving test output with higher contract ViewController. Cleaning up avatar image to better illustrate masking
+ - Correcting format
+
 Version 1.0.0:
  - Updating readme and making the date methods a little more Swifty
  - Refined printout

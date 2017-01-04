@@ -1,0 +1,17 @@
+Version 1.0.1:
+ - Making a bit more Swifty w/ type inference. Improving test output with higher contract ViewController. Cleaning up avatar image to better illustrate masking
+ - Correcting format
+
+Version 1.0.0:
+ - Updating readme and making the date methods a little more Swifty
+ - Refined printout
+ - Updating to Swift 3
+ - add more setters for uiview
+ - bug fixes for beta 5
+ - Merge branch 'master' of https://github.com/yingogobot/Swift-Useful-Extensions
+ - more ignore
+ - Update README.md
+ - Update README.md
+ - Create README.md
+ - git ingore
+ - init

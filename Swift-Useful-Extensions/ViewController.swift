@@ -1,10 +1,5 @@
-//
 //  ViewController.swift
 //  Swift-Useful-Extensions
-//
-//  Created by Yin Xu on 6/9/14.
-//  Copyright (c) 2014 YinXuApp. All rights reserved.
-//
 
 import UIKit
 
@@ -19,71 +14,82 @@ class ViewController: UIViewController {
         //                 UIView Extension               //
         ////////////////////////////////////////////////////
 
-        self.testView.setCenterX(250);
-        self.testView.setY(50);
-        self.testView.roundCorner(5)
+        self.testView.centerX = 250
+        self.testView.y = 250
+        self.testView.width = 100
+        self.testView.height = 100
+        self.testView.cornerRadius = 5
         
         
         ////////////////////////////////////////////////////
         //                  Int Extension                 //
         ////////////////////////////////////////////////////
         
+        print("\nInt:")
         if(111.isEven)
         {
-            println("111 isEven");
+            print("111 isEven");
         }
         else if (111.isOdd)
         {
-            println("111 isOdd");
+            print("111 isOdd");
         }
-        
-        println(123.toFloat)
-        println("how many digits is in -2147483647 \((-2147483647).digits)")
-        println("how many digits is in -2147483647 \(2147483647.digits)")
+        print("123 to Float: \(123.toFloat)")
+        print("How many digits are in -2147483647: \((-2147483647).digits)")
+        print("How many digits are in 2147483647: \(2147483647.digits)")
         
 
         ////////////////////////////////////////////////////
         //                 String Extension               //
         ////////////////////////////////////////////////////
         
-        println("HEEEEEE".containsString("he"))
-        println("HEEEEEE".containsString("he", compareOption: NSStringCompareOptions.CaseInsensitiveSearch))
+        print("\nString:")
+        print("Reverse: \("Hello World".reverse())")
+        print("'HEEEEEE' contains 'he': \("HEEEEEE".contains("he"))")
+        print("'HEEEEEE' contains 'he' using caseInsensitive: \("HEEEEEE".contains("he", withCompareOptions: .caseInsensitive))")
+        
         
         ////////////////////////////////////////////////////
         //                 NSDate Extension               //
         ////////////////////////////////////////////////////     
         
-        var date : NSDate = NSDate.date().dateByAddingTimeInterval(60 * 60 * 24)
-        println(date.hoursInBetweenDate(NSDate.date()))
-        println(date.minutesInBetweenDate(NSDate.date()))
-        var double = (date.minutesInBetweenDate(NSDate.date()))
+        print("\nNSDate:")
+        let date = NSDate().addingTimeInterval(60 * 60 * 24)
+        print("Hours in between now: \(date.hoursInBetween(NSDate()))")
+        print("Minutes in between now: \(date.minutesInBetween(NSDate()))")
+        let double = (date.minutesInBetween(NSDate()))
+
         
         ////////////////////////////////////////////////////
         //                 Double Extension               //
         ////////////////////////////////////////////////////
 
-        var rounded:Double = double.roundToDecimalDigits(2)
-        println(rounded)
-        println(("234.4444" as NSString).doubleValue)
+        print("\nDouble:")
+        print(double.roundedTo(decimals: 2))
+        print(5555.5555.roundedTo(decimals: 3))
+        print(234.4444.roundedTo(decimals: 1))
         
         
         ////////////////////////////////////////////////////
         //              UIImageView Extension             //
         ////////////////////////////////////////////////////
         
-        var imageView : UIImageView = UIImageView(image: UIImage(named: "avatar.jpg"))
-        imageView.frame = CGRectMake(25, 50, 200, 200)
+        let imageView = UIImageView(image: UIImage(named: "avatar"))
+        imageView.frame = CGRect(x:25, y:50, width:200, height:200)
         imageView.roundImage()
         self.view.addSubview(imageView)
+        
         
         ////////////////////////////////////////////////////
         //                UIImage Extension               //
         ////////////////////////////////////////////////////
         
-        var image = UIImage(named: "avatar.jpg").croppedImage(CGRectMake(0, 0, 200, 200))
-        var imageView2 : UIImageView = UIImageView(image: image)
-        imageView2.frame = CGRectMake(25, 250, 50, 50)
+        let imageView2 = UIImageView(image: UIImage(named: "avatar"))
+        imageView2.frame = CGRect(x:25, y:250, width:50, height:50)
+        imageView.contentMode = .scaleAspectFill
         self.view.addSubview(imageView2)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
